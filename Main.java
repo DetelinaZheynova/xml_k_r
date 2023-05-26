@@ -1,13 +1,67 @@
 //Проект 3: XML Parser
+
+import java.util.Scanner;
+
         public class Main {
+
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+
+        Scanner scanner = new Scanner(System.in);
+
+        FileOperations.processUserInput(scanner);
+
+        System.out.println("Menu exited.");
+
+        System.out.print("Enter a number: ");
+        int number = scanner.nextInt();
+
+        if (number == 0) {
+            FileOperations.openFile();
+            FileOperations.processUserInput(scanner);
+        } else if (number == 1) {
+            FileOperations.saveFile();
+            FileOperations.processUserInput(scanner);
+        } else if (number == 2) {
+            FileOperations.saveFileAs("C:\\Users\\Detelina\\IdeaProjects\\xml_k_r\\src\\file.xml");
+            FileOperations.processUserInput(scanner);
+        } else if (number == 3) {
+            FileOperations.closeFile();
+            FileOperations.processUserInput(scanner);
+        } else if (number == 4) {
+            FileUse.writeFile();
+            FileOperations.processUserInput(scanner);
+        } else if (number == 5) {
+            FileUse.readFile();
+            FileOperations.processUserInput(scanner);
+        } else if (number == 6) {
+            XmlCompare.compare();
+            FileOperations.processUserInput(scanner);
+        } else if (number == 7) {
+            XmlIdentifier.identify();
+            FileOperations.processUserInput(scanner);
+        } else if (number == 8) {
+            XmlManipulator.manipulate();
+            FileOperations.processUserInput(scanner);
+        } else if (number == 9) {
+            XmlReader.reader();
+            FileOperations.processUserInput(scanner);
+        } else if (number == 10) {
+            XmlWriter.writer();
+            FileOperations.processUserInput(scanner);
+        } else if (number == 11) {
+            FileOperations.showMenuOptions();
+            FileOperations.processUserInput(scanner);
+        }  else {
+            scanner.close();
+        }
     }
-}
+        }
+
+
+
 //<people> <person id=”0”>
 //<name>John Smith</name>
-//<address>USA</address> </person> <person id=”1”>
-//<name>Ivan Petrov</name> <address>Bulgaria</address> </person>
+//<address>USA</address> </person>
 // <person id=”2”>
 ////<name>Peter Pelov</name> <address>Bolivia</address> </person>
 // <person id=”3”>
@@ -57,3 +111,4 @@
 // <person id=”25”>
 ////<name>Shamel Heisenberg</name> <address>Denmark</address> </person>
 // </people>
+
